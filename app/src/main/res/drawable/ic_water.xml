@@ -1,0 +1,11 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Simple drop icon -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M12,2C8.13,6.17 6,9.53 6,13a6,6 0,0 0,12 0c0,-3.47 -2.13,-6.83 -6,-11zM12,19a5,5 0,0 1,-5 -5c0,-2.45 1.69,-5.17 5,-9.34 3.31,4.17 5,6.89 5,9.34a5,5 0,0 1,-5 5z"/>
+</vector>
