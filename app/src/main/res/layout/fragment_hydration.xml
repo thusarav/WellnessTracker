@@ -11,19 +11,19 @@
         android:id="@+id/switchReminder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Enable water reminders" />
+        android:text="@string/hydration_reminder_switch" />
 
     <EditText
         android:id="@+id/etInterval"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Interval minutes (e.g. 60)"
+        android:hint="@string/hydration_interval_hint"
         android:inputType="number" />
 
     <Button
         android:id="@+id/btnSaveReminder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Save Settings" />
+        android:text="@string/button_save_settings" />
 
 </LinearLayout>

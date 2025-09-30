@@ -5,18 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Header -->
     <TextView
         android:id="@+id/tvCompletion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Habits Completed: 0%"
+        android:text="@string/habits_completion_default"
         android:textSize="16sp"
         android:padding="16dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
-    <!-- Habit List -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerHabits"
         android:layout_width="0dp"
@@ -27,7 +25,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Add Habit Floating Button -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabAddHabit"
         android:layout_width="wrap_content"
@@ -35,7 +32,7 @@
         android:src="@android:drawable/ic_input_add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:contentDescription="Add Habit"
+        android:contentDescription="@string/fab_add_habit_desc"
         app:tint="@android:color/white"
         android:layout_margin="16dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,7 +15,10 @@ class WaterReminderWorker(
 ) : Worker(context, workerParams) {
 
     override fun doWork(): Result {
-        showNotification("Hydration Reminder", "💧 Time to drink some water!")
+        showNotification(
+            applicationContext.getString(R.string.notification_hydration_title),
+            applicationContext.getString(R.string.notification_hydration_message)
+        )
         return Result.success()
     }
 
@@ -27,7 +30,7 @@ class WaterReminderWorker(
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
                 channelId,
-                "Water Reminders",
+                applicationContext.getString(R.string.nav_hydration), // Channel name
                 NotificationManager.IMPORTANCE_DEFAULT
             )
             notificationManager.createNotificationChannel(channel)
@@ -36,7 +39,7 @@ class WaterReminderWorker(
         val notification = NotificationCompat.Builder(applicationContext, channelId)
             .setContentTitle(title)
             .setContentText(message)
-            .setSmallIcon(R.drawable.ic_water) // vector drawable white drop
+            .setSmallIcon(R.drawable.ic_water)
             .setAutoCancel(true)
             .build()
 

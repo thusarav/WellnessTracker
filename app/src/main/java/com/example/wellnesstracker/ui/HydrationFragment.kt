@@ -29,7 +29,6 @@ class HydrationFragment : Fragment() {
         val etInterval = view.findViewById<EditText>(R.id.etInterval)
         val btnSave = view.findViewById<Button>(R.id.btnSaveReminder)
 
-        // Load saved state
         val hydrationSettings = prefs.getHydrationSettings()
         switchReminder.isChecked = hydrationSettings.reminderEnabled
         etInterval.setText(hydrationSettings.intervalMinutes.toString())
@@ -46,10 +45,13 @@ class HydrationFragment : Fragment() {
             }
 
             prefs.saveHydrationSettings(
-                hydrationSettings.copy(reminderEnabled = enabled, intervalMinutes = interval)
+                hydrationSettings.copy(
+                    reminderEnabled = enabled,
+                    intervalMinutes = interval
+                )
             )
 
-            Toast.makeText(requireContext(), "Settings saved ✅", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), getString(R.string.settings_saved_toast), Toast.LENGTH_SHORT).show()
         }
 
         return view

@@ -23,7 +23,7 @@
             android:id="@+id/tvMoodTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Today, 12:00"
+            android:text="@string/mood_time_format_list"
             android:textSize="12sp"
             android:textColor="@android:color/darker_gray"/>
 
@@ -31,7 +31,7 @@
             android:id="@+id/tvMoodNote"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Feeling okay today..."
+            android:text="@string/mood_placeholder_text"
             android:textSize="14sp"/>
     </LinearLayout>
 </LinearLayout>

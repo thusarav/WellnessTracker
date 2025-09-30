@@ -26,12 +26,15 @@ class MoodAdapter(private var moods: MutableList<MoodEntry>) :
     override fun onBindViewHolder(holder: MoodViewHolder, position: Int) {
         val mood = moods[position]
 
-        // Show emoji + note
         holder.tvEmoji.text = mood.emoji
-        holder.tvNote.text = if (mood.note.isNotEmpty()) mood.note else "(no note)"
+        holder.tvNote.text = if (mood.note.isNotEmpty()) mood.note else holder.itemView.context.getString(R.string.mood_no_note)
 
         // Use MoodEntry helper functions for formatted date/time
-        holder.tvTime.text = "${mood.getFormattedDate()} • ${mood.getFormattedTime()}"
+        holder.tvTime.text = holder.itemView.context.getString(
+            R.string.mood_time_format_list,
+            mood.getFormattedDate(),
+            mood.getFormattedTime()
+        )
     }
 
     override fun getItemCount(): Int = moods.size

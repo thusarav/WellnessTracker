@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Mood input area -->
     <LinearLayout
         android:id="@+id/moodInputContainer"
         android:layout_width="0dp"
@@ -21,11 +20,10 @@
             android:id="@+id/tvAskMood"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="How are you feeling?"
+            android:text="@string/mood_question"
             android:textSize="16sp"
             android:layout_marginBottom="8dp" />
 
-        <!-- Emoji selector -->
         <LinearLayout
             android:id="@+id/emojiContainer"
             android:layout_width="match_parent"
@@ -61,19 +59,17 @@
             android:id="@+id/etMoodNote"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Add a note (optional)"/>
+            android:hint="@string/mood_note_hint"/>
 
-        <!-- New: Button to toggle chart visibility -->
         <Button
             android:id="@+id/btnToggleChart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Show Mood Trend" />
+            android:text="@string/show_mood_trend" />
 
     </LinearLayout>
 
-    <!-- Mood History List -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerMoods"
         android:layout_width="0dp"
@@ -83,7 +79,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- New: Mood Trend Chart -->
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/moodLineChart"
         android:layout_width="0dp"
@@ -95,13 +90,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         tools:visibility="visible" />
 
-    <!-- Save Mood Floating Button -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabSaveMood"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@android:drawable/ic_input_add"
-        android:contentDescription="Save Mood"
+        android:contentDescription="@string/fab_save_mood_desc"
         app:tint="@android:color/white"
         android:layout_margin="16dp"
         app:layout_constraintBottom_toBottomOf="parent"

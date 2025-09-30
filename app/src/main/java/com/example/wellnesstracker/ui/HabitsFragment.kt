@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wellnesstracker.R
 import com.example.wellnesstracker.data.Habit
@@ -48,6 +49,7 @@ class HabitsFragment : Fragment() {
                 prefs.saveHabits(habits)
             }
         )
+        recyclerView.layoutManager = LinearLayoutManager(requireContext()) // Added layout manager
         recyclerView.adapter = adapter
 
         fabAdd.setOnClickListener { showAddHabitDialog() }
@@ -58,22 +60,22 @@ class HabitsFragment : Fragment() {
 
     private fun updateCompletion() {
         if (habits.isEmpty()) {
-            tvCompletion.text = "No habits yet"
+            tvCompletion.text = getString(R.string.habits_completion_default)
         } else {
             val doneCount = habits.count { it.isCompletedToday }
             val percent = (doneCount * 100) / habits.size
-            tvCompletion.text = "Habits Completed: $percent%"
+            tvCompletion.text = getString(R.string.habits_completion_progress, percent)
         }
     }
 
     private fun showAddHabitDialog() {
         val input = EditText(requireContext())
-        input.hint = "Enter habit name"
+        input.hint = getString(R.string.dialog_habit_name_hint)
 
         AlertDialog.Builder(requireContext())
-            .setTitle("New Habit")
+            .setTitle(R.string.dialog_new_habit_title)
             .setView(input)
-            .setPositiveButton("Add") { _, _ ->
+            .setPositiveButton(R.string.button_add) { _, _ ->
                 val name = input.text.toString().trim()
                 if (name.isNotEmpty()) {
                     val newHabit = Habit(name = name)
@@ -83,7 +85,7 @@ class HabitsFragment : Fragment() {
                     prefs.saveHabits(habits)
                 }
             }
-            .setNegativeButton("Cancel", null)
+            .setNegativeButton(R.string.button_cancel, null)
             .show()
     }
 }

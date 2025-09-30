@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- File: app/src/main/res/menu/bottom_nav_menu.xml -->
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@android:drawable/ic_menu_today"
+        android:title="Home" />
     <item
         android:id="@+id/habitsFragment"
         android:icon="@android:drawable/ic_menu_agenda"
@@ -11,7 +16,7 @@
     <item
         android:id="@+id/hydrationFragment"
         android:icon="@android:drawable/ic_menu_gallery"
-        android:title="Hydration" />
+        android:title="Water" />
     <item
         android:id="@+id/settingsFragment"
         android:icon="@android:drawable/ic_menu_preferences"

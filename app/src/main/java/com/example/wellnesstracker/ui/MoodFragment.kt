@@ -1,10 +1,10 @@
 package com.example.wellnesstracker.ui
 
 import android.animation.Animator
-import android.animation.AnimatorListenerAdapter // Import AnimatorListenerAdapter
+import android.animation.AnimatorListenerAdapter
 import android.animation.ObjectAnimator
 import android.animation.PropertyValuesHolder
-import android.os.Build // Import Build class for API level checks
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,8 +13,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.content.ContextCompat // Recommended for getColor for API < 23
-import androidx.core.view.isGone // For View.isGone KTX extension
+import androidx.core.content.ContextCompat
+import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -28,10 +28,10 @@ import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import java.text.SimpleDateFormat // Import SimpleDateFormat
+import java.text.SimpleDateFormat
 import java.util.Calendar
-import java.util.Date // Import Date
-import java.util.Locale // Import Locale
+import java.util.Date
+import java.util.Locale
 import java.util.concurrent.TimeUnit
 
 class MoodFragment : Fragment() {
@@ -39,7 +39,7 @@ class MoodFragment : Fragment() {
     private lateinit var prefs: PreferencesManager
     private lateinit var adapter: MoodAdapter
     private lateinit var moods: MutableList<MoodEntry>
-    private var selectedEmoji: String = "🙂" // default emoji for selection
+    private var selectedEmoji: String = "🙂"
 
     private lateinit var moodLineChart: LineChart
     private lateinit var btnToggleChart: Button
@@ -93,19 +93,19 @@ class MoodFragment : Fragment() {
             etNote.text.clear()
 
             updateChart()
-            Toast.makeText(requireContext(), "Mood saved ✅", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), getString(R.string.mood_saved_toast), Toast.LENGTH_SHORT).show()
         }
 
         btnToggleChart.setOnClickListener {
-            if (moodLineChart.isGone) { // Use isGone KTX property
-                moodLineChart.isGone = false // Show chart
-                recyclerView.isGone = true // Hide list
-                btnToggleChart.setText(R.string.show_mood_history) // Use string resource
+            if (moodLineChart.isGone) {
+                moodLineChart.isGone = false
+                recyclerView.isGone = true
+                btnToggleChart.setText(R.string.show_mood_history)
                 updateChart()
             } else {
-                moodLineChart.isGone = true // Hide chart
-                recyclerView.isGone = false // Show list
-                btnToggleChart.setText(R.string.show_mood_trend) // Use string resource
+                moodLineChart.isGone = true
+                recyclerView.isGone = false
+                btnToggleChart.setText(R.string.show_mood_trend)
             }
         }
 
@@ -131,8 +131,8 @@ class MoodFragment : Fragment() {
         scaleDown.duration = 150
 
         scaleUp.start()
-        scaleUp.addListener(object : AnimatorListenerAdapter() { // Fixed: animation? parameter
-            override fun onAnimationEnd(animation: Animator) { // Fixed: non-nullable Animator
+        scaleUp.addListener(object : AnimatorListenerAdapter() {
+            override fun onAnimationEnd(animation: Animator) {
                 scaleDown.start()
             }
         })
@@ -141,7 +141,7 @@ class MoodFragment : Fragment() {
     private fun setupChart() {
         moodLineChart.description.isEnabled = false
         moodLineChart.legend.isEnabled = false
-        moodLineChart.setNoDataText("Log some moods to see your trend!")
+        moodLineChart.setNoDataText(getString(R.string.chart_no_data))
 
         val xAxis = moodLineChart.xAxis
         xAxis.position = XAxis.XAxisPosition.BOTTOM
@@ -183,7 +183,6 @@ class MoodFragment : Fragment() {
         for (i in 6 downTo 0) {
             calendar.timeInMillis = System.currentTimeMillis()
             calendar.add(Calendar.DAY_OF_YEAR, -i)
-            // Use MoodEntry helper for date formatting
             sevenDaysList.add(MoodEntry.getFormattedDateFromTimestamp(calendar.timeInMillis))
         }
 
@@ -193,20 +192,18 @@ class MoodFragment : Fragment() {
                 val averageMood = moodsOnDay.map { it.moodLevel }.average().toFloat()
                 entries.add(Entry(index.toFloat(), averageMood))
             } else {
-                entries.add(Entry(index.toFloat(), 3f)) // Default to neutral if no mood logged
+                entries.add(Entry(index.toFloat(), 3f))
             }
             xLabels.add(dayLabel)
         }
 
-        val dataSet = LineDataSet(entries, "Mood Trend")
+        val dataSet = LineDataSet(entries, "Mood Trend") // This "Mood Trend" is for internal legend, not user-facing
 
-        // --- API 23+ getColor fix ---
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) { // M = API 23
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             dataSet.color = ContextCompat.getColor(requireContext(), R.color.primary_blue)
             dataSet.valueTextColor = ContextCompat.getColor(requireContext(), R.color.text_primary)
             dataSet.setCircleColor(ContextCompat.getColor(requireContext(), R.color.accent_green))
         } else {
-            // Fallback for API < 23 (e.g., just use default colors or define simpler ones)
             dataSet.color = android.graphics.Color.BLUE
             dataSet.valueTextColor = android.graphics.Color.BLACK
             dataSet.setCircleColor(android.graphics.Color.GREEN)

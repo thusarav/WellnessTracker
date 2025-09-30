@@ -2,10 +2,64 @@
 <resources>
     <string name="app_name">Wellness Tracker</string>
 
-    <!-- ... (your existing strings) ... -->
+    <!-- Navigation Titles -->
+    <string name="nav_home">Home</string>
+    <string name="nav_habits">Habits</string>
+    <string name="nav_mood">Mood</string>
+    <string name="nav_hydration">Water</string>
+    <string name="nav_settings">Settings</string>
 
-    <!-- New strings for MoodFragment chart toggle button -->
+    <!-- Login/Register Screens -->
+    <string name="login_title">Login to Wellness Tracker</string>
+    <string name="register_title">Create Account</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="button_login">Login</string>
+    <string name="button_register">Register</string>
+    <string name="prompt_register">Don\'t have an account? Register</string>
+    <string name="prompt_login">Already have an account? Login</string>
+    <string name="toast_fill_fields">Please fill all fields</string>
+    <string name="toast_username_taken">Username already taken</string>
+    <string name="toast_registration_successful">Registration successful!</string>
+    <string name="toast_login_successful">Login successful!</string>
+    <string name="toast_invalid_credentials">Invalid username or password</string>
+    <string name="welcome_dashboard">Welcome to your Dashboard!</string>
+
+    <!-- Habits Fragment -->
+    <string name="habits_completion_default">No habits yet</string>
+    <string name="habits_completion_progress">Habits Completed: %1$d%%</string>
+    <string name="fab_add_habit_desc">Add Habit</string>
+    <string name="dialog_new_habit_title">New Habit</string>
+    <string name="dialog_habit_name_hint">Enter habit name</string>
+    <string name="button_add">Add</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="content_description_delete_habit">Delete habit</string>
+    <string name="habit_name_placeholder">Habit name</string>
+
+    <!-- Mood Fragment -->
+    <string name="mood_question">How are you feeling?</string>
+    <string name="mood_note_hint">Add a note (optional)</string>
     <string name="show_mood_trend">Show Mood Trend</string>
     <string name="show_mood_history">Show Mood History</string>
+    <string name="fab_save_mood_desc">Save Mood</string>
+    <string name="mood_saved_toast">Mood saved ✅</string>
+    <string name="chart_no_data">Log some moods to see your trend!</string>
+    <string name="mood_placeholder_text">Feeling okay today...</string>
+    <string name="mood_no_note">(no note)</string>
+    <string name="mood_time_format_list">%1$s • %2$s</string>
+
+    <!-- Hydration Fragment -->
+    <string name="hydration_reminder_switch">Enable water reminders</string>
+    <string name="hydration_interval_hint">Interval minutes (e.g. 60)</string>
+    <string name="button_save_settings">Save Settings</string>
+    <string name="settings_saved_toast">Settings saved ✅</string>
+    <string name="notification_hydration_title">Hydration Reminder</string>
+    <string name="notification_hydration_message">💧 Time to drink some water!</string>
+
+    <!-- Settings Fragment (Future) -->
+    <string name="settings_notifications_title">Notifications</string>
+    <string name="settings_data_management_title">Data</string>
+    <string name="settings_reset_all_data">Reset All Data</string>
+    <string name="settings_export_data">Export Data</string>
 
 </resources>
