@@ -1,21 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
+    <!-- Primary Theme Colors -->
+    <color name="colorPrimary">#6200EE</color>        <!-- Dark Violet -->
+    <color name="colorPrimaryVariant">#3700B3</color>   <!-- Deeper Violet -->
+    <color name="colorOnPrimary">#FFFFFF</color>      <!-- White text on Primary -->
+
+    <!-- Secondary (Accent) Theme Colors -->
+    <color name="colorSecondary">#03DAC6</color>       <!-- Teal Green -->
+    <color name="colorSecondaryVariant">#018786</color> <!-- Darker Teal -->
+    <color name="colorOnSecondary">#000000</color>    <!-- Black text on Secondary -->
+
+    <!-- Background & Surface Colors -->
+    <color name="colorBackground">#F5F5F5</color>     <!-- Light Grey Background -->
+    <color name="colorSurface">#FFFFFF</color>        <!-- White surfaces (cards, sheets) -->
+    <color name="colorOnBackground">#212121</color>   <!-- Primary text on Background -->
+    <color name="colorOnSurface">#212121</color>      <!-- Primary text on Surface -->
+
+    <!-- Error Color -->
+    <color name="colorError">#B00020</color>           <!-- Red for errors -->
+    <color name="colorOnError">#FFFFFF</color>        <!-- White text on Error -->
+
+    <!-- Neutral/Helper Colors -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="grey_text">#757575</color>
+    <color name="divider_light">#E0E0E0</color>
+    <color name="status_bar">#3700B3</color> <!-- Match primaryVariant or your choice -->
 
-    <!-- Custom colors for chart -->
-    <color name="primary_blue">#2196F3</color>
-    <color name="primary_blue_dark">#1976D2</color>
-    <color name="accent_green">#4CAF50</color>
-    <color name="accent_orange">#FF9800</color>
-    <color name="background_light">#F5F5F5</color>
-    <color name="card_background">#FFFFFF</color>
-    <color name="text_primary">#212121</color>
-    <color name="text_secondary">#757575</color>
-    <color name="divider_color">#E0E0E0</color>
+    <!-- Specific for chart (ensure these are unique if not used by Material theme) -->
+    <color name="chart_line_color">#2196F3</color>     <!-- Blue -->
+    <color name="chart_circle_color">#4CAF50</color>   <!-- Green -->
+    <color name="chart_text_color">#212121</color>    <!-- Dark grey -->
 </resources>

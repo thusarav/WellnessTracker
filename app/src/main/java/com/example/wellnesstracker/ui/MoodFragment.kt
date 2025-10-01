@@ -199,11 +199,12 @@ class MoodFragment : Fragment() {
 
         val dataSet = LineDataSet(entries, "Mood Trend") // This "Mood Trend" is for internal legend, not user-facing
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            dataSet.color = ContextCompat.getColor(requireContext(), R.color.primary_blue)
-            dataSet.valueTextColor = ContextCompat.getColor(requireContext(), R.color.text_primary)
-            dataSet.setCircleColor(ContextCompat.getColor(requireContext(), R.color.accent_green))
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) { // M = API 23
+            dataSet.color = ContextCompat.getColor(requireContext(), R.color.chart_line_color)
+            dataSet.valueTextColor = ContextCompat.getColor(requireContext(), R.color.chart_text_color)
+            dataSet.setCircleColor(ContextCompat.getColor(requireContext(), R.color.chart_circle_color))
         } else {
+            // Fallback for API < 23 (e.g., just use default colors or define simpler ones)
             dataSet.color = android.graphics.Color.BLUE
             dataSet.valueTextColor = android.graphics.Color.BLACK
             dataSet.setCircleColor(android.graphics.Color.GREEN)
