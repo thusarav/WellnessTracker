@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- File: app/src/main/res/menu/bottom_nav_menu.xml -->
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/homeFragment"
-        android:icon="@android:drawable/ic_menu_today"
-        android:title="Home" />
+        android:icon="@drawable/ic_home"
+        android:title="@string/nav_home" />
     <item
         android:id="@+id/habitsFragment"
-        android:icon="@android:drawable/ic_menu_agenda"
-        android:title="Habits" />
+        android:icon="@drawable/ic_habits"
+        android:title="@string/nav_habits" />
     <item
         android:id="@+id/moodFragment"
-        android:icon="@android:drawable/ic_menu_edit"
-        android:title="Mood" />
+        android:icon="@drawable/ic_mood"
+        android:title="@string/nav_mood" />
     <item
         android:id="@+id/hydrationFragment"
-        android:icon="@android:drawable/ic_menu_gallery"
-        android:title="Water" />
+        android:icon="@drawable/ic_hydration"
+        android:title="@string/nav_hydration" />
     <item
         android:id="@+id/settingsFragment"
-        android:icon="@android:drawable/ic_menu_preferences"
-        android:title="Settings" />
+        android:icon="@drawable/ic_settings"
+        android:title="@string/nav_settings" />
 </menu>
